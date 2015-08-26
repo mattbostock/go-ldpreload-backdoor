@@ -1,8 +1,8 @@
-# Go LD_PRELOAD backdoor experiment
+# LD_PRELOAD libc hooking using Go
 
-This is an experiment to use Go in a shared library to wrap a libc function
-and start a TCP server (the 'backdoor') allowing commands arbitrary commands to
-be run from a client such as telnet or netcat.
+This is an experiment to use Go in a shared library to wrap a libc function and
+start a TCP server (a 'backdoor') allowing commands arbitrary commands to be
+run from a client such as telnet or netcat.
 
 This is a toy intended written for educational purposes to demonstrate some of
 Go's capabilities.
