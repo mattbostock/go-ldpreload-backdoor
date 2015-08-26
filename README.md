@@ -1,8 +1,11 @@
 # Go LD_PRELOAD backdoor experiment
 
-This is an experiment/proof of concept to create a backdoor allowing arbitrary
-remote code execution when running standard system utilities using Go as a
-shared library.
+This is an experiment to use Go in a shared library to wrap a libc function
+and start a TCP server (the 'backdoor') allowing commands arbitrary commands to
+be run from a client such as telnet or netcat.
+
+This is a toy intended written for educational purposes to demonstrate some of
+Go's capabilities.
 
 Works on Linux only and requires Go version 1.5 or above in order to build the
 shared library.
@@ -12,7 +15,7 @@ shared library.
 In writing this, I have four aims:
 
 - to try out [Go's new build modes][], which allow Go to be compiled to a
-  shared library that can be called from other languages
+  shared library that can be called from C
 
 - to experiment with `LD_PRELOAD` exploits
 
