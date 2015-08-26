@@ -36,3 +36,10 @@ In a separate console, while `top` is running:
 
     nc localhost 4444
     [...type your commands here...]
+
+## Limitations
+
+- Only works on Linux
+- Only works with binaries that call libc's `strrchr` function. I'd ideally
+  like to hook `__libc_start_main` instead. The binaries I tested with are `ps`
+  and `top` as provided by Ubuntu Trusty LTS.
