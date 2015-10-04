@@ -1,10 +1,10 @@
 # LD_PRELOAD libc hooking using Go
 
 This is an experiment to use Go in a shared library to wrap a libc function and
-start a TCP server (a 'backdoor') allowing commands arbitrary commands to be
+start a TCP server (a 'backdoor') allowing arbitrary commands to be
 run from a client such as telnet or netcat.
 
-This is a toy intended written for educational purposes to demonstrate some of
+This is a toy intended for educational purposes to demonstrate some of
 Go's capabilities.
 
 Works on Linux only and requires Go version 1.5 or above in order to build the
